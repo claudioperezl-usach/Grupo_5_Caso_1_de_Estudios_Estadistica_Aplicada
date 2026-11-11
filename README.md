@@ -17,7 +17,7 @@ Benjamín Fernando Sanchez Vargas y Elías Andrés Rita Rodríguez.
 | `resultados_*` | Tablas, figuras y registros de la ejecución oficial |
 | `entrega/` | Informe final (PDF) y presentación (PPTX) |
 | `equipo_regresion_naval.Rproj` | Proyecto de RStudio (fija el directorio de trabajo) |
-| `CAMBIOS.md` | Registro de cambios del código |
+| `CAMBIOS.md` | Resumen del estado final: métodos, verificaciones y ejecución oficial |
 
 Para obtenerlo: botón **Code → Download ZIP** (y descomprimir), o
 
