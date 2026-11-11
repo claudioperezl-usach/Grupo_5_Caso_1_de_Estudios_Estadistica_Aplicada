@@ -1,0 +1,13 @@
+cantidad,valor
+Coeficiente b (puntos % por 1 unidad de t2),0.17533
+EE robusto (HC3),0.00301
+EE clásico (MCO),0.00230
+IC 95% de b (HC3),[0.16942; 0.18123]
+"IC 95% de b (clásico, confint)",[0.17081; 0.17984]
+Efecto de +10 unidades de t2 [IC 95% HC3] (puntos %),1.753 [1.694; 1.812]
+Efecto de +10 unidades de t2 [IC 95% clásico] (puntos %),1.753 [1.708; 1.798]
+Efecto de +1 DE de t2 dentro de cada velocidad (puntos %),0.940
+"DE de la respuesta (puntos %), para dimensionar el efecto",1.476
+R2 parcial de la variable (sobre el modelo solo con velocidad),0.406
+Valor p (robusto),<2e-16
+Observaciones,8486

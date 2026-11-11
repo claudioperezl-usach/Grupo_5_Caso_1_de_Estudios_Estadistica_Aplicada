@@ -1,0 +1,40 @@
+List of 33
+ $ semilla                    : int 20261016
+ $ semilla_ruido              : int 20261031
+ $ n_hilos                    : int 1
+ $ dir_datos                  : chr "datos"
+ $ archivo_datos              : chr "data.txt"
+ $ filas_datos                : int 11934
+ $ firma_datos                : num 4.75e+08
+ $ dir_anidada                : chr "resultados_validacion_anidada"
+ $ dir_final                  : chr "resultados_elastic_net_final"
+ $ excluir_constantes         : chr [1:2] "t1" "p1"
+ $ excluir_duplicadas         : chr [1:2] "tp" "lp"
+ $ excluir_no_disponible      : chr "kmt"
+ $ velocidad_reservada        : num 15
+ $ prop_test                  : num 0.2
+ $ rf_arboles                 : int 500
+ $ grilla_lambda_loso         : num [1:10] 0.0001 0.000278 0.000774 0.002154 0.005995 ...
+ $ arbol_fijo                 :List of 3
+  ..$ cp          : num 0.001
+  ..$ profundidad : int 10
+  ..$ min_division: int 20
+ $ xgb_fijo                   :List of 3
+  ..$ rondas     : int 200
+  ..$ eta        : num 0.05
+  ..$ profundidad: int 4
+ $ anidar_ensembles           : logi TRUE
+ $ inf_variable               : chr "t2"
+ $ inf_delta                  : num 10
+ $ B_bootstrap                : int 500
+ $ B_ruido                    : int 100
+ $ umbral_critico             : num 4
+ $ niveles_intervalo          : num [1:3] 0.8 0.9 0.95
+ $ sensibilidad_objetivo      : num 0.9
+ $ grilla_umbral_alerta       : num [1:31] 1 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 ...
+ $ n_perm                     : int 10
+ $ n_ice                      : int 150
+ $ n_pdp_variables            : int 4
+ $ pdp_puntos                 : int 20
+ $ ruta_referencia            : chr "codigo/referencia/ranking_anidado_referencia.csv"
+ $ tolerancia_reproducibilidad: num 0.001

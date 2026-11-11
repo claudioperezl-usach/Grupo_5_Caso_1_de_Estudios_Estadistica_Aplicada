@@ -1,0 +1,57 @@
+velocidad,modelo,parametros
+3,Elastic-net,penalty=0.0166810053720006; mixture=0.75
+3,Ridge,penalty=0.0166810053720006
+3,Lasso,penalty=0.0166810053720006
+3,Splines naturales,deg_free=2
+3,Árbol de regresión,cost_complexity=0.001; tree_depth=6
+3,Random Forest,mtry=3; min_n=20
+3,XGBoost,trees=300; learn_rate=0.05; tree_depth=4; min_n=10
+6,Elastic-net,penalty=0.0166810053720006; mixture=0.75
+6,Ridge,penalty=0.0464158883361278
+6,Lasso,penalty=0.0166810053720006
+6,Splines naturales,deg_free=3
+6,Árbol de regresión,cost_complexity=0.001; tree_depth=6
+6,Random Forest,mtry=3; min_n=20
+6,XGBoost,trees=300; learn_rate=0.05; tree_depth=4; min_n=10
+9,Elastic-net,penalty=0.00599484250318941; mixture=0.5
+9,Ridge,penalty=0.0166810053720006
+9,Lasso,penalty=0.0166810053720006
+9,Splines naturales,deg_free=2
+9,Árbol de regresión,cost_complexity=0.001; tree_depth=6
+9,Random Forest,mtry=3; min_n=20
+9,XGBoost,trees=300; learn_rate=0.05; tree_depth=4; min_n=10
+12,Elastic-net,penalty=0.0166810053720006; mixture=0.75
+12,Ridge,penalty=0.0166810053720006
+12,Lasso,penalty=0.0166810053720006
+12,Splines naturales,deg_free=2
+12,Árbol de regresión,cost_complexity=0.001; tree_depth=6
+12,Random Forest,mtry=3; min_n=20
+12,XGBoost,trees=300; learn_rate=0.05; tree_depth=4; min_n=10
+18,Elastic-net,penalty=0.0464158883361278; mixture=0.75
+18,Ridge,penalty=0.0464158883361278
+18,Lasso,penalty=0.0464158883361278
+18,Splines naturales,deg_free=3
+18,Árbol de regresión,cost_complexity=0.001; tree_depth=6
+18,Random Forest,mtry=3; min_n=20
+18,XGBoost,trees=300; learn_rate=0.05; tree_depth=4; min_n=10
+21,Elastic-net,penalty=0.00215443469003188; mixture=0.5
+21,Ridge,penalty=0.0166810053720006
+21,Lasso,penalty=1
+21,Splines naturales,deg_free=2
+21,Árbol de regresión,cost_complexity=0.001; tree_depth=6
+21,Random Forest,mtry=3; min_n=20
+21,XGBoost,trees=300; learn_rate=0.05; tree_depth=4; min_n=10
+24,Elastic-net,penalty=0.00599484250318941; mixture=0.5
+24,Ridge,penalty=0.00599484250318941
+24,Lasso,penalty=0.0166810053720006
+24,Splines naturales,deg_free=4
+24,Árbol de regresión,cost_complexity=0.001; tree_depth=6
+24,Random Forest,mtry=3; min_n=20
+24,XGBoost,trees=300; learn_rate=0.15; tree_depth=4; min_n=10
+27,Elastic-net,penalty=0.0166810053720006; mixture=0.75
+27,Ridge,penalty=0.0166810053720006
+27,Lasso,penalty=0.0464158883361278
+27,Splines naturales,deg_free=4
+27,Árbol de regresión,cost_complexity=0.001; tree_depth=6
+27,Random Forest,mtry=3; min_n=20
+27,XGBoost,trees=300; learn_rate=0.05; tree_depth=4; min_n=10

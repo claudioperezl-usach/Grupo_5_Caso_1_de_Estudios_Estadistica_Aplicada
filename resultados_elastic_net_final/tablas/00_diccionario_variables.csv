@@ -1,0 +1,19 @@
+variable,descripcion,unidad,rol
+y,Pérdida de rendimiento del compresor = 100*(1 - kMc),puntos %,respuesta
+v,Velocidad del buque,nudos,predictor (sensor en régimen estacionario)
+gtt,Torque del eje de la turbina a gas,kN m,predictor (sensor en régimen estacionario)
+gtn,Revoluciones de la turbina a gas,rpm,predictor (sensor en régimen estacionario)
+ggn,Revoluciones del generador de gas,rpm,predictor (sensor en régimen estacionario)
+ts,Torque de hélice (estribor),kN,predictor (sensor en régimen estacionario)
+t48,Temperatura de salida de la turbina de alta presión,K,predictor (sensor en régimen estacionario)
+t2,Temperatura de salida del compresor,K,predictor (sensor en régimen estacionario)
+p48,Presión de salida de la turbina de alta presión,bar,predictor (sensor en régimen estacionario)
+p2,Presión de salida del compresor,bar,predictor (sensor en régimen estacionario)
+pexh,Presión de los gases de escape,bar,predictor (sensor en régimen estacionario)
+tic,Control de inyección de la turbina,%,predictor (sensor en régimen estacionario)
+mf,Flujo de combustible,kg/s,predictor (sensor en régimen estacionario)
+lp,Posición de palanca,-,"excluida: equivale a v (correlación 0,9999)"
+tp,Torque de hélice (babor),kN,excluida: idéntica a ts
+t1,Temperatura de entrada del compresor,K,excluida: constante
+p1,Presión de entrada del compresor,bar,excluida: constante
+kmt,Coeficiente de degradación de la turbina,-,excluida: no se conoce al decidir (fuga de información)

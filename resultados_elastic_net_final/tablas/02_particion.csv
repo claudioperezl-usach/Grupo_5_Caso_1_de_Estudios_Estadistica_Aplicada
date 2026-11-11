@@ -1,0 +1,4 @@
+conjunto,filas
+Entrenamiento (con CV),8486
+Test aleatorio (interpolación),2122
+Test velocidad no vista,1326

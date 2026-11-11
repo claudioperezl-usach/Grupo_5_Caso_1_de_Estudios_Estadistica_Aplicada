@@ -1,0 +1,2 @@
+conjunto,n,rmse_original,rmse_estricto,diferencia_rmse,max_diferencia_pred,jerr_estricto
+entrenamiento,8486,1.02902079712509,1.02944126638168,0.000420469256583456,0.0231749738411517,0

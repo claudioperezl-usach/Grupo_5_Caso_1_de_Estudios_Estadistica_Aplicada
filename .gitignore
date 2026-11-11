@@ -1,0 +1,8 @@
+# Archivos de sesión de R / RStudio
+.Rhistory
+.RData
+.Rproj.user/
+.Ruserdata
+# Sistema operativo
+.DS_Store
+Thumbs.db
