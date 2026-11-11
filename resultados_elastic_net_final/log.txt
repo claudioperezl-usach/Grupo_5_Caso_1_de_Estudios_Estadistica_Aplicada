@@ -1,345 +1,345 @@
-[21:20:02] === Paso 10: auditoría, partición, verificación de fuga e inferencia ===
-[21:20:02] Leyendo datos/data.txt
-[21:20:02]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
-[21:20:02]   [OK] sin valores faltantes
-[21:20:02]   [OK] sin filas duplicadas
-[21:20:02]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
-[21:20:02]   [OK] respuesta y dentro de [0, 5] puntos %
-[21:20:03]     tabla: resultados_elastic_net_final/tablas/01_auditoria_variables.csv
-[21:20:03] Variables constantes: t1, p1
-[21:20:03]     tabla: resultados_elastic_net_final/tablas/01_estructura_de_grilla.csv
-[21:20:03]   [OK] el dataset es una grilla completa: velocidades x niveles kMc x niveles kMt = filas
-[21:20:04]     figura: resultados_elastic_net_final/figuras/01_t2_vs_perdida_por_velocidad.png
-[21:20:04]   [OK] existe la velocidad reservada (15 nudos)
-[21:20:04]   [OK] sin filas compartidas: entrenamiento / test aleatorio
-[21:20:04]   [OK] sin filas compartidas: entrenamiento / test de velocidad
-[21:20:04]   [OK] sin filas compartidas entre los dos test
-[21:20:04]   [OK] la velocidad reservada no aparece en el entrenamiento
-[21:20:04]   [OK] las tres particiones suman todas las filas
-[21:20:04]     tabla: resultados_elastic_net_final/tablas/02_particion.csv
-[21:20:04] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
-[21:20:04]     tabla: resultados_elastic_net_final/tablas/00_diccionario_variables.csv
-[21:20:04]   [OK] kMt (degradación de la turbina) no es predictor: no se conoce al decidir
-[21:20:04]   [OK] ni la respuesta ni kMc están entre los predictores
-[21:20:04]   [OK] y = 100 * (1 - kMc)
-[21:20:04]   [OK] 12 predictores informativos (>= 8)
-[21:20:04]   [OK] variables excluidas por constantes: t1, p1
-[21:20:04]   [OK] variables excluidas por duplicadas: tp, lp
-[21:20:04]   [OK] ninguna |correlación global| con y >= 0.98 (máx: t2 = 0.044)
-[21:20:04]   [OK] ninguna |correlación intra-velocidad| con y >= 0.98 (máx: ggn = 0.757)
-[21:20:04]     tabla: resultados_elastic_net_final/tablas/03_correlaciones_con_respuesta.csv
-[21:20:04]     tabla: resultados_elastic_net_final/tablas/04_relacion_ic.csv
-[21:20:04] Relación t2: +10 unidades -> 1.753 [1.694; 1.812] puntos % de pérdida (IC 95%, EE robusto); R2 parcial = 0.406
-[21:20:04]     figura: resultados_elastic_net_final/figuras/04_relacion_t2_perdida.png
-[21:20:04] Paso 10 terminado. Los test no se utilizaron.
-[22:16:43] === Paso 12: selección LOSO, modelo final congelado y evaluación en test ===
-[22:16:43] Leyendo datos/data.txt
-[22:16:43]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
-[22:16:43]   [OK] sin valores faltantes
-[22:16:43]   [OK] sin filas duplicadas
-[22:16:43]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
-[22:16:43]   [OK] respuesta y dentro de [0, 5] puntos %
-[22:16:43]   [OK] existe la velocidad reservada (15 nudos)
-[22:16:43]   [OK] sin filas compartidas: entrenamiento / test aleatorio
-[22:16:43]   [OK] sin filas compartidas: entrenamiento / test de velocidad
-[22:16:43]   [OK] sin filas compartidas entre los dos test
-[22:16:43]   [OK] la velocidad reservada no aparece en el entrenamiento
-[22:16:43]   [OK] las tres particiones suman todas las filas
-[22:16:43]     tabla: resultados_elastic_net_final/tablas/02_particion.csv
-[22:16:43] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
-[22:16:43]   [OK] partición coherente con la configuración: 8486 entrenamiento, 2122 test aleatorio, 1326 test de 15 nudos
-[22:16:47] Advertencias de tune durante el ajuste: 5
-[22:16:47] Hiperparámetros elegidos (1-SE): penalty = 0.005995; mixture = 0.5
-[22:16:47]   [OK] una predicción LOSO fuera de partición por fila de entrenamiento
-[22:16:47] Modelo congelado guardado en resultados_elastic_net_final/elastic_net_final.rds
-[22:16:47]   [OK] ninguna fila del test 'interpolacion' está en el entrenamiento
-[22:16:47]   [OK] ninguna fila del test 'velocidad_15' está en el entrenamiento
-[22:16:47] TEST interpolacion RMSE = 1.0070 (baseline 1.4549; mejora 30.8%) | MAE = 0.8310 | R2 = 0.5209
-[22:16:47] TEST velocidad_15  RMSE = 1.0528 (baseline 1.4720; mejora 28.5%) | MAE = 0.8973 | R2 = 0.4884
-[22:16:47] Paso 12 terminado. Los test no se usaron para elegir hiperparámetros.
-[22:16:47] === Paso 13: figuras finales ===
-[22:16:48]     figura: resultados_elastic_net_final/figuras/13_rmse_por_velocidad.png
-[22:16:48]     figura: resultados_elastic_net_final/figuras/13_test_vs_baseline.png
-[22:16:48]     figura: resultados_elastic_net_final/figuras/13_predicho_vs_observado.png
-[22:16:48] Paso 13 terminado.
-[22:16:48]     tabla: resultados_elastic_net_final/tablas/14_comparacion_por_velocidad.csv
-[22:16:48] Elastic-net gana al baseline en 7 de 8 velocidades y a Ridge en 5.
-[22:16:48] Diferencia pareada media de RMSE (Elastic-net menos Ridge): -0.0099
-[22:16:48] Hiperparámetros elegidos: penalty = 0.005995; mixture = 0.5
-[22:16:48]     tabla: resultados_elastic_net_final/tablas/14_coeficientes_elastic_net.csv
-[22:16:48] Coeficientes estandarizados (puntos % por DE): t2 +8.12 | pexh -4.53 | p2 -3.36 | ts +1.93 | v -1.87 | p48 -1.42 | gtn +1.41 | t48 -1.12 | tic +0.97 | mf +0.92 | gtt -0.81 | ggn -0.23
-[22:16:48] Variables con coeficiente no nulo: 12. Su estabilidad entre particiones está en el paso 17.
-[22:16:48] Advertencias del tuning guardadas: 5 (convergencia de glmnet en lambdas pequeños; ver README).
-[22:16:48]     tabla: resultados_elastic_net_final/tablas/14_error_por_degradacion.csv
-[22:16:48] Paso 14 terminado.
-[22:16:48] === Paso 15: sensibilidad a ruido de sensores (LOSO, solo entrenamiento) ===
-[22:16:48] Leyendo datos/data.txt
-[22:16:48]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
-[22:16:48]   [OK] sin valores faltantes
-[22:16:48]   [OK] sin filas duplicadas
-[22:16:48]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
-[22:16:48]   [OK] respuesta y dentro de [0, 5] puntos %
-[22:16:48]   [OK] existe la velocidad reservada (15 nudos)
-[22:16:48]   [OK] sin filas compartidas: entrenamiento / test aleatorio
-[22:16:48]   [OK] sin filas compartidas: entrenamiento / test de velocidad
-[22:16:48]   [OK] sin filas compartidas entre los dos test
-[22:16:48]   [OK] la velocidad reservada no aparece en el entrenamiento
-[22:16:48]   [OK] las tres particiones suman todas las filas
-[22:16:48]     tabla: resultados_elastic_net_final/tablas/02_particion.csv
-[22:16:48] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
-[22:16:48]   [OK] ruido, 3 nudos: la velocidad evaluada no está en el ajuste
-[22:16:49]   [OK] ruido, 6 nudos: la velocidad evaluada no está en el ajuste
-[22:16:50]   [OK] ruido, 9 nudos: la velocidad evaluada no está en el ajuste
-[22:16:51]   [OK] ruido, 12 nudos: la velocidad evaluada no está en el ajuste
-[22:16:51]   [OK] ruido, 18 nudos: la velocidad evaluada no está en el ajuste
-[22:16:52]   [OK] ruido, 21 nudos: la velocidad evaluada no está en el ajuste
-[22:16:53]   [OK] ruido, 24 nudos: la velocidad evaluada no está en el ajuste
-[22:16:53]   [OK] ruido, 27 nudos: la velocidad evaluada no está en el ajuste
-[22:16:54]     tabla: resultados_elastic_net_final/tablas/15_sensibilidad_ruido_por_velocidad.csv
-[22:16:54]     tabla: resultados_elastic_net_final/tablas/15_resumen_sensibilidad_ruido.csv
-[22:16:54] Ruido de 1 % de la DE en 11 sensores: el RMSE LOSO sube 0.42 % en promedio (máximo 0.82 %)
-[22:16:54] Paso 15 terminado. Simulación de ruido, no validación con sensores reales; los test no se utilizaron.
-[22:16:54] === Paso 16: intervalos de predicción con el cuantil empírico de los residuos LOSO ===
-[22:16:54]   [OK] calibración con 8486 residuos LOSO del entrenamiento (uno por fila, sin faltantes)
-[22:16:54]   [OK] ningún residuo de calibración pertenece a los test
-[22:16:54] Nivel 80% | interpolacion | semiancho = 1.587 | cobertura = 87.3% | ancho medio = 3.121
-[22:16:54] Nivel 80% | velocidad_15  | semiancho = 1.587 | cobertura = 87.0% | ancho medio = 3.157
-[22:16:54] Nivel 90% | interpolacion | semiancho = 1.943 | cobertura = 96.3% | ancho medio = 3.704
-[22:16:54] Nivel 90% | velocidad_15  | semiancho = 1.943 | cobertura = 97.3% | ancho medio = 3.765
-[22:16:54] Nivel 95% | interpolacion | semiancho = 2.192 | cobertura = 98.7% | ancho medio = 4.054
-[22:16:54] Nivel 95% | velocidad_15  | semiancho = 2.192 | cobertura = 99.2% | ancho medio = 4.104
-[22:16:54]   [OK] existe un umbral con la sensibilidad objetivo en las predicciones LOSO
-[22:16:54] Umbral de alerta elegido con LOSO: 2.5 puntos % (sensibilidad objetivo 90 %)
-[22:16:54]   entrenamiento (LOSO)  sensibilidad = 0.903 | falsas alarmas = 0.364 | alertas = 0.481
-[22:16:54]   interpolacion         sensibilidad = 0.946 | falsas alarmas = 0.356 | alertas = 0.479
-[22:16:54]   velocidad_15          sensibilidad = 1.000 | falsas alarmas = 0.653 | alertas = 0.728
-[22:16:54] Paso 16 terminado. Los test solo se usaron para verificar cobertura y política.
-[22:16:54] Leyendo datos/data.txt
-[22:16:54]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
-[22:16:54]   [OK] sin valores faltantes
-[22:16:54]   [OK] sin filas duplicadas
-[22:16:54]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
-[22:16:54]   [OK] respuesta y dentro de [0, 5] puntos %
-[22:16:54]   [OK] existe la velocidad reservada (15 nudos)
-[22:16:54]   [OK] sin filas compartidas: entrenamiento / test aleatorio
-[22:16:54]   [OK] sin filas compartidas: entrenamiento / test de velocidad
-[22:16:54]   [OK] sin filas compartidas entre los dos test
-[22:16:54]   [OK] la velocidad reservada no aparece en el entrenamiento
-[22:16:54]   [OK] las tres particiones suman todas las filas
-[22:16:54]     tabla: resultados_elastic_net_final/tablas/02_particion.csv
-[22:16:54] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
-[22:16:54] Hiperparámetros finales: alpha = 0.5; lambda = 0.005995
-[22:16:54] Grilla de lambda: 1e-04 a 1. Lambda en el borde inferior: FALSE
-[22:16:55]     tabla: resultados_elastic_net_final/tablas/17_convergencia_estricta.csv
-[22:16:55] Convergencia estricta (tol. 1e-10): diferencia de RMSE = 0.00042; diferencia máxima de predicción = 0.0232
-[22:16:55]     tabla: resultados_elastic_net_final/tablas/17_coeficientes_por_fold.csv
-[22:16:55]     tabla: resultados_elastic_net_final/tablas/17_estabilidad_coeficientes.csv
-[22:16:55] Variables que cambian de signo entre particiones: ggn
-[22:16:55] Paso 17 terminado. Las métricas LOSO de OLS, RF y XGBoost se calculan en el paso 20.
-[22:16:55] Leyendo datos/data.txt
-[22:16:55]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
-[22:16:55]   [OK] sin valores faltantes
-[22:16:55]   [OK] sin filas duplicadas
-[22:16:55]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
-[22:16:55]   [OK] respuesta y dentro de [0, 5] puntos %
-[22:16:55]   [OK] existe la velocidad reservada (15 nudos)
-[22:16:55]   [OK] sin filas compartidas: entrenamiento / test aleatorio
-[22:16:55]   [OK] sin filas compartidas: entrenamiento / test de velocidad
-[22:16:55]   [OK] sin filas compartidas entre los dos test
-[22:16:55]   [OK] la velocidad reservada no aparece en el entrenamiento
-[22:16:55]   [OK] las tres particiones suman todas las filas
-[22:16:55]     tabla: resultados_elastic_net_final/tablas/02_particion.csv
-[22:16:55] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
-[22:16:55]     tabla: resultados_elastic_net_final/tablas/05_ols_vif.csv
-[22:16:55] VIF máximo: p48 = 49907.4
-[22:16:55]     tabla: resultados_elastic_net_final/tablas/05_ols_observaciones_influyentes.csv
-[22:16:55] Observaciones con Cook > 4/n: 442 (5.21%)
-[22:16:56]     figura: resultados_elastic_net_final/figuras/05_ols_residuos_vs_ajustados.png
-[22:16:56]     tabla: resultados_elastic_net_final/tablas/18_diagnostico_ols_por_velocidad.csv
-[22:16:56]     tabla: resultados_elastic_net_final/tablas/18_vif_por_velocidad.csv
-[22:16:56] OLS LOSO: RMSE medio = 5.198; VIF máximo entre particiones = 130360.5; particiones con coeficientes NA = 0
-[22:16:56] Paso 18 terminado. Los test no se utilizaron.
-[22:16:56] Leyendo datos/data.txt
-[22:16:56]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
-[22:16:56]   [OK] sin valores faltantes
-[22:16:56]   [OK] sin filas duplicadas
-[22:16:56]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
-[22:16:56]   [OK] respuesta y dentro de [0, 5] puntos %
-[22:16:56]   [OK] existe la velocidad reservada (15 nudos)
-[22:16:56]   [OK] sin filas compartidas: entrenamiento / test aleatorio
-[22:16:56]   [OK] sin filas compartidas: entrenamiento / test de velocidad
-[22:16:56]   [OK] sin filas compartidas entre los dos test
-[22:16:56]   [OK] la velocidad reservada no aparece en el entrenamiento
-[22:16:56]   [OK] las tres particiones suman todas las filas
-[22:16:56]     tabla: resultados_elastic_net_final/tablas/02_particion.csv
-[22:16:56] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
-[22:16:57]   velocidad 3: árbol fijo RMSE = 2.688 | promedio EN+Ridge RMSE = 1.560
-[22:16:57]   velocidad 6: árbol fijo RMSE = 1.693 | promedio EN+Ridge RMSE = 1.397
-[22:16:57]   velocidad 9: árbol fijo RMSE = 1.955 | promedio EN+Ridge RMSE = 1.190
-[22:16:57]   velocidad 12: árbol fijo RMSE = 1.836 | promedio EN+Ridge RMSE = 1.245
-[22:16:57]   velocidad 18: árbol fijo RMSE = 2.478 | promedio EN+Ridge RMSE = 1.409
-[22:16:57]   velocidad 21: árbol fijo RMSE = 2.010 | promedio EN+Ridge RMSE = 1.174
-[22:16:58]   velocidad 24: árbol fijo RMSE = 2.492 | promedio EN+Ridge RMSE = 0.868
-[22:16:58]   velocidad 27: árbol fijo RMSE = 2.586 | promedio EN+Ridge RMSE = 0.956
-[22:16:58]     tabla: resultados_elastic_net_final/tablas/19_detalle_arbol_promedio.csv
-[22:16:58]     tabla: resultados_elastic_net_final/tablas/19_predicciones_arbol_promedio.csv
-[22:16:58]     tabla: resultados_elastic_net_final/tablas/19_ranking_arbol_promedio.csv
-[22:16:58] Ranking LOSO: Promedio ENet+Ridge 1.225 | Elastic-net reajustado 1.243 | Ridge reajustado 1.253 | Baseline global 1.476 | Arbol fijo 2.217
-[22:16:58]   [OK] Elastic-net reajustado en el paso 19 reproduce el paso 11 (dif. max. = 4e-15)
-[22:16:58]   [OK] Ridge reajustado en el paso 19 reproduce el paso 11 (dif. max. = 4.88e-15)
-[22:16:58] Paso 19 terminado. Los test no se utilizaron.
-[22:16:58] === Paso 20: métricas LOSO de OLS, GAM, Random Forest y XGBoost ===
-[22:16:58] Leyendo datos/data.txt
-[22:16:58]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
-[22:16:58]   [OK] sin valores faltantes
-[22:16:58]   [OK] sin filas duplicadas
-[22:16:58]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
-[22:16:58]   [OK] respuesta y dentro de [0, 5] puntos %
-[22:16:58]   [OK] existe la velocidad reservada (15 nudos)
-[22:16:58]   [OK] sin filas compartidas: entrenamiento / test aleatorio
-[22:16:58]   [OK] sin filas compartidas: entrenamiento / test de velocidad
-[22:16:58]   [OK] sin filas compartidas entre los dos test
-[22:16:58]   [OK] la velocidad reservada no aparece en el entrenamiento
-[22:16:58]   [OK] las tres particiones suman todas las filas
-[22:16:58]     tabla: resultados_elastic_net_final/tablas/02_particion.csv
-[22:16:58] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
-[22:16:58] Fórmula GAM: y ~ s(gtt, bs = "cr") + s(ggn, bs = "cr") + s(t48, bs = "cr") + s(t2, bs = "cr") + s(p2, bs = "cr") + s(mf, bs = "cr") + s(tic, bs = "cr") + v + gtn + ts + p48 + pexh
-[22:17:09]   [OK] OLS: predicciones válidas a 3 nudos
-[22:17:09]   [OK] GAM: predicciones válidas a 3 nudos
-[22:17:19]   [OK] OLS: predicciones válidas a 6 nudos
-[22:17:19]   [OK] GAM: predicciones válidas a 6 nudos
-[22:17:26]   [OK] OLS: predicciones válidas a 9 nudos
-[22:17:26]   [OK] GAM: predicciones válidas a 9 nudos
-[22:17:35]   [OK] OLS: predicciones válidas a 12 nudos
-[22:17:35]   [OK] GAM: predicciones válidas a 12 nudos
-[22:17:47]   [OK] OLS: predicciones válidas a 18 nudos
-[22:17:47]   [OK] GAM: predicciones válidas a 18 nudos
-[22:18:00]   [OK] OLS: predicciones válidas a 21 nudos
-[22:18:00]   [OK] GAM: predicciones válidas a 21 nudos
-[22:18:05]   [OK] OLS: predicciones válidas a 24 nudos
-[22:18:05]   [OK] GAM: predicciones válidas a 24 nudos
-[22:18:13]   [OK] OLS: predicciones válidas a 27 nudos
-[22:18:13]   [OK] GAM: predicciones válidas a 27 nudos
-[22:18:13] LOSO (media de 8 velocidades): OLS RMSE = 5.198 | GAM RMSE = 18.107
-[22:18:13] Paso 20 terminado.
-[22:18:13] === Paso 21: Tabla 1 consolidada ===
-[22:18:13]   [OK] cada modelo de la Tabla 1 tiene 8 velocidades evaluadas
-[22:18:13] Tabla 1: Promedio EN + Ridge 1.225 | Elastic-net 1.243 | Ridge 1.253 | Lasso 1.334 | Media global (baseline) 1.476 | XGBoost 1.778 | Random Forest 1.781 | Árbol de regresión 2.053 | Splines naturales 2.736 | OLS 5.198 | GAM 18.107
-[22:18:13] Elastic-net - Ridge: -0.010 [-0.111; 0.091]
-[22:18:13] Paso 21 terminado.
-[22:18:13] === Paso 22: importancia por permutación, PDP e ICE ===
-[22:18:13] Leyendo datos/data.txt
-[22:18:13]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
-[22:18:13]   [OK] sin valores faltantes
-[22:18:13]   [OK] sin filas duplicadas
-[22:18:13]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
-[22:18:13]   [OK] respuesta y dentro de [0, 5] puntos %
-[22:18:13]   [OK] existe la velocidad reservada (15 nudos)
-[22:18:13]   [OK] sin filas compartidas: entrenamiento / test aleatorio
-[22:18:13]   [OK] sin filas compartidas: entrenamiento / test de velocidad
-[22:18:13]   [OK] sin filas compartidas entre los dos test
-[22:18:13]   [OK] la velocidad reservada no aparece en el entrenamiento
-[22:18:13]   [OK] las tres particiones suman todas las filas
-[22:18:13]     tabla: resultados_elastic_net_final/tablas/02_particion.csv
-[22:18:13] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
-[22:18:13]   [OK] el archivo de parámetros tiene penalty y mixture
-[22:18:13]   [OK] permutación, 3 nudos: la velocidad evaluada no está en el ajuste
-[22:18:14]   permutación terminada: velocidad excluida 3 nudos
-[22:18:14]   [OK] permutación, 6 nudos: la velocidad evaluada no está en el ajuste
-[22:18:15]   permutación terminada: velocidad excluida 6 nudos
-[22:18:15]   [OK] permutación, 9 nudos: la velocidad evaluada no está en el ajuste
-[22:18:16]   permutación terminada: velocidad excluida 9 nudos
-[22:18:16]   [OK] permutación, 12 nudos: la velocidad evaluada no está en el ajuste
-[22:18:16]   permutación terminada: velocidad excluida 12 nudos
-[22:18:16]   [OK] permutación, 18 nudos: la velocidad evaluada no está en el ajuste
-[22:18:17]   permutación terminada: velocidad excluida 18 nudos
-[22:18:17]   [OK] permutación, 21 nudos: la velocidad evaluada no está en el ajuste
-[22:18:17]   permutación terminada: velocidad excluida 21 nudos
-[22:18:17]   [OK] permutación, 24 nudos: la velocidad evaluada no está en el ajuste
-[22:18:18]   permutación terminada: velocidad excluida 24 nudos
-[22:18:18]   [OK] permutación, 27 nudos: la velocidad evaluada no está en el ajuste
-[22:18:19]   permutación terminada: velocidad excluida 27 nudos
-[22:18:19]     tabla: resultados_elastic_net_final/tablas/22_importancia_permutacion_detalle.csv
-[22:18:19]     tabla: resultados_elastic_net_final/tablas/22_importancia_permutacion.csv
-[22:18:19] Variables más importantes: t2, pexh, p2, tic
-[22:18:19]     figura: resultados_elastic_net_final/figuras/22_importancia_permutacion.png
-[22:18:19]   [OK] PDP/ICE de t2: predicciones válidas
-[22:18:19]   [OK] PDP/ICE de pexh: predicciones válidas
-[22:18:19]   [OK] PDP/ICE de p2: predicciones válidas
-[22:18:19]   [OK] PDP/ICE de tic: predicciones válidas
-[22:18:19]     tabla: resultados_elastic_net_final/tablas/22_ice.csv
-[22:18:19]     tabla: resultados_elastic_net_final/tablas/22_pdp.csv
-[22:18:20]     figura: resultados_elastic_net_final/figuras/22_pdp_ice.png
-[22:18:20] Paso 22 terminado. Los test no se utilizaron.
-[22:18:32] === Paso 24: multicolinealidad y valores SHAP (solo entrenamiento) ===
-[22:18:33] Leyendo datos/data.txt
-[22:18:33]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
-[22:18:33]   [OK] sin valores faltantes
-[22:18:33]   [OK] sin filas duplicadas
-[22:18:33]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
-[22:18:33]   [OK] respuesta y dentro de [0, 5] puntos %
-[22:18:33]   [OK] existe la velocidad reservada (15 nudos)
-[22:18:33]   [OK] sin filas compartidas: entrenamiento / test aleatorio
-[22:18:33]   [OK] sin filas compartidas: entrenamiento / test de velocidad
-[22:18:33]   [OK] sin filas compartidas entre los dos test
-[22:18:33]   [OK] la velocidad reservada no aparece en el entrenamiento
-[22:18:33]   [OK] las tres particiones suman todas las filas
-[22:18:33]     tabla: resultados_elastic_net_final/tablas/02_particion.csv
-[22:18:33] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
-[22:18:33]     tabla: resultados_elastic_net_final/tablas/24_correlaciones_predictores.csv
-[22:18:33] Pares de predictores con |correlación| >= 0,9: 65 de 66
-[22:18:33]     figura: resultados_elastic_net_final/figuras/24_correlaciones_predictores.png
-[22:18:33]   [OK] el VIF del paso 18 cubre los mismos predictores
-[22:18:33]     figura: resultados_elastic_net_final/figuras/24_vif.png
-[22:18:33]   [OK] aditividad SHAP: predicción media + suma de los SHAP = predicción del modelo
-[22:18:33]     tabla: resultados_elastic_net_final/tablas/24_shap_importancia.csv
-[22:18:33] SHAP |medio| (puntos %): t2 7.336 | pexh 3.951 | p2 2.986 | v 1.711 | ts 1.651 | gtn 1.282 | p48 1.250 | t48 0.973 | tic 0.800 | mf 0.766 | gtt 0.697 | ggn 0.221
-[22:18:33] Predicción media (base de los SHAP) = 2.499 puntos %
-[22:18:33]     tabla: resultados_elastic_net_final/tablas/24_shap_muestra.csv
-[22:18:34]     figura: resultados_elastic_net_final/figuras/24_shap_enjambre.png
-[22:18:34] Paso 24 terminado. Los test no se utilizaron.
-[22:18:34] === Paso 25: curva de error de entrenamiento vs validación (Elastic-net) ===
-[22:18:34] Leyendo datos/data.txt
-[22:18:34]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
-[22:18:34]   [OK] sin valores faltantes
-[22:18:34]   [OK] sin filas duplicadas
-[22:18:34]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
-[22:18:34]   [OK] respuesta y dentro de [0, 5] puntos %
-[22:18:34]   [OK] existe la velocidad reservada (15 nudos)
-[22:18:34]   [OK] sin filas compartidas: entrenamiento / test aleatorio
-[22:18:34]   [OK] sin filas compartidas: entrenamiento / test de velocidad
-[22:18:34]   [OK] sin filas compartidas entre los dos test
-[22:18:34]   [OK] la velocidad reservada no aparece en el entrenamiento
-[22:18:34]   [OK] las tres particiones suman todas las filas
-[22:18:34]     tabla: resultados_elastic_net_final/tablas/02_particion.csv
-[22:18:34] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
-[22:18:35]   [OK] curva: un punto de validación por cada lambda de la grilla
-[22:18:35]   [OK] RMSE de entrenamiento con el lambda elegido = paso 17 (1.029)
-[22:18:35]     tabla: resultados_elastic_net_final/tablas/25_curva_entrenamiento_validacion.csv
-[22:18:35] Lambda elegido 0.0060: entrenamiento 1.029 (MAE 0.852) | validación LOSO 1.199 | test aleatorio 1.007 | test 15 nudos 1.053
-[22:18:35] Lambda más chico (1e-04): entrenamiento 0.709 | validación LOSO 2.021 (brecha 1.312)
-[22:18:36]     figura: resultados_elastic_net_final/figuras/25_curva_entrenamiento_validacion.png
-[22:18:36] Paso 25 terminado. No se evaluó ningún λ nuevo en los test.
-[19:37:15] === Paso 26: figuras de la presentación ===
-[19:37:15] Leyendo datos/data.txt
-[19:37:15]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
-[19:37:15]   [OK] sin valores faltantes
-[19:37:15]   [OK] sin filas duplicadas
-[19:37:15]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
-[19:37:15]   [OK] respuesta y dentro de [0, 5] puntos %
-[19:37:15]   [OK] existe la velocidad reservada (15 nudos)
-[19:37:15]   [OK] sin filas compartidas: entrenamiento / test aleatorio
-[19:37:15]   [OK] sin filas compartidas: entrenamiento / test de velocidad
-[19:37:15]   [OK] sin filas compartidas entre los dos test
-[19:37:15]   [OK] la velocidad reservada no aparece en el entrenamiento
-[19:37:15]   [OK] las tres particiones suman todas las filas
-[19:37:15]     tabla: resultados_elastic_net_final/tablas/02_particion.csv
-[19:37:15] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
-[19:37:15]   [OK] pendiente de T2 igual a la del paso 10 (0.17533)
-[19:37:16]     figura: resultados_elastic_net_final/figuras/presentacion/26_lamina04_relacion_t2.png
-[19:37:16]     figura: resultados_elastic_net_final/figuras/presentacion/26_lamina06_vif.png
-[19:37:17]     figura: resultados_elastic_net_final/figuras/presentacion/26_lamina07_rmse_tabla1.png
-[19:37:17]     figura: resultados_elastic_net_final/figuras/presentacion/26_lamina08_pdp_ice.png
-[19:37:18]     figura: resultados_elastic_net_final/figuras/presentacion/26_lamina08_shap.png
-[19:37:18]     figura: resultados_elastic_net_final/figuras/presentacion/26_lamina10_borde_3_nudos.png
-[19:37:18] Paso 26 terminado. Solo grafica tablas ya generadas; los test no se utilizaron.
+[16:09:26] === Paso 10: auditoría, partición, verificación de fuga e inferencia ===
+[16:09:26] Leyendo datos/data.txt
+[16:09:26]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
+[16:09:26]   [OK] sin valores faltantes
+[16:09:26]   [OK] sin filas duplicadas
+[16:09:26]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
+[16:09:26]   [OK] respuesta y dentro de [0, 5] puntos %
+[16:09:26]     tabla: resultados_elastic_net_final/tablas/01_auditoria_variables.csv
+[16:09:26] Variables constantes: t1, p1
+[16:09:26]     tabla: resultados_elastic_net_final/tablas/01_estructura_de_grilla.csv
+[16:09:26]   [OK] el dataset es una grilla completa: velocidades x niveles kMc x niveles kMt = filas
+[16:09:27]     figura: resultados_elastic_net_final/figuras/01_t2_vs_perdida_por_velocidad.png
+[16:09:27]   [OK] existe la velocidad reservada (15 nudos)
+[16:09:27]   [OK] sin filas compartidas: entrenamiento / test aleatorio
+[16:09:27]   [OK] sin filas compartidas: entrenamiento / test de velocidad
+[16:09:27]   [OK] sin filas compartidas entre los dos test
+[16:09:27]   [OK] la velocidad reservada no aparece en el entrenamiento
+[16:09:27]   [OK] las tres particiones suman todas las filas
+[16:09:27]     tabla: resultados_elastic_net_final/tablas/02_particion.csv
+[16:09:27] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
+[16:09:27]     tabla: resultados_elastic_net_final/tablas/00_diccionario_variables.csv
+[16:09:27]   [OK] kMt (degradación de la turbina) no es predictor: no se conoce al decidir
+[16:09:27]   [OK] ni la respuesta ni kMc están entre los predictores
+[16:09:27]   [OK] y = 100 * (1 - kMc)
+[16:09:27]   [OK] 12 predictores informativos (>= 8)
+[16:09:27]   [OK] variables excluidas por constantes: t1, p1
+[16:09:27]   [OK] variables excluidas por duplicadas: tp, lp
+[16:09:27]   [OK] ninguna |correlación global| con y >= 0.98 (máx: t2 = 0.044)
+[16:09:27]   [OK] ninguna |correlación intra-velocidad| con y >= 0.98 (máx: ggn = 0.757)
+[16:09:27]     tabla: resultados_elastic_net_final/tablas/03_correlaciones_con_respuesta.csv
+[16:09:28]     tabla: resultados_elastic_net_final/tablas/04_relacion_ic.csv
+[16:09:28] Relación t2: +10 unidades -> 1.753 [1.694; 1.812] puntos % de pérdida (IC 95%, EE robusto); R2 parcial = 0.406
+[16:09:28]     figura: resultados_elastic_net_final/figuras/04_relacion_t2_perdida.png
+[16:09:28] Paso 10 terminado. Los test no se utilizaron.
+[17:08:11] === Paso 12: selección LOSO, modelo final congelado y evaluación en test ===
+[17:08:11] Leyendo datos/data.txt
+[17:08:11]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
+[17:08:11]   [OK] sin valores faltantes
+[17:08:11]   [OK] sin filas duplicadas
+[17:08:11]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
+[17:08:11]   [OK] respuesta y dentro de [0, 5] puntos %
+[17:08:12]   [OK] existe la velocidad reservada (15 nudos)
+[17:08:12]   [OK] sin filas compartidas: entrenamiento / test aleatorio
+[17:08:12]   [OK] sin filas compartidas: entrenamiento / test de velocidad
+[17:08:12]   [OK] sin filas compartidas entre los dos test
+[17:08:12]   [OK] la velocidad reservada no aparece en el entrenamiento
+[17:08:12]   [OK] las tres particiones suman todas las filas
+[17:08:12]     tabla: resultados_elastic_net_final/tablas/02_particion.csv
+[17:08:12] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
+[17:08:12]   [OK] partición coherente con la configuración: 8486 entrenamiento, 2122 test aleatorio, 1326 test de 15 nudos
+[17:08:16] Advertencias de tune durante el ajuste: 5
+[17:08:16] Hiperparámetros elegidos (1-SE): penalty = 0.005995; mixture = 0.5
+[17:08:16]   [OK] una predicción LOSO fuera de partición por fila de entrenamiento
+[17:08:16] Modelo congelado guardado en resultados_elastic_net_final/elastic_net_final.rds
+[17:08:16]   [OK] ninguna fila del test 'interpolacion' está en el entrenamiento
+[17:08:16]   [OK] ninguna fila del test 'velocidad_15' está en el entrenamiento
+[17:08:16] TEST interpolacion RMSE = 1.0070 (baseline 1.4549; mejora 30.8%) | MAE = 0.8310 | R2 = 0.5209
+[17:08:16] TEST velocidad_15  RMSE = 1.0528 (baseline 1.4720; mejora 28.5%) | MAE = 0.8973 | R2 = 0.4884
+[17:08:16] Paso 12 terminado. Los test no se usaron para elegir hiperparámetros.
+[17:08:16] === Paso 13: figuras finales ===
+[17:08:16]     figura: resultados_elastic_net_final/figuras/13_rmse_por_velocidad.png
+[17:08:17]     figura: resultados_elastic_net_final/figuras/13_test_vs_baseline.png
+[17:08:17]     figura: resultados_elastic_net_final/figuras/13_predicho_vs_observado.png
+[17:08:17] Paso 13 terminado.
+[17:08:17]     tabla: resultados_elastic_net_final/tablas/14_comparacion_por_velocidad.csv
+[17:08:17] Elastic-net gana al baseline en 7 de 8 velocidades y a Ridge en 5.
+[17:08:17] Diferencia pareada media de RMSE (Elastic-net menos Ridge): -0.0099
+[17:08:17] Hiperparámetros elegidos: penalty = 0.005995; mixture = 0.5
+[17:08:17]     tabla: resultados_elastic_net_final/tablas/14_coeficientes_elastic_net.csv
+[17:08:17] Coeficientes estandarizados (puntos % por DE): t2 +8.12 | pexh -4.53 | p2 -3.36 | ts +1.93 | v -1.87 | p48 -1.42 | gtn +1.41 | t48 -1.12 | tic +0.97 | mf +0.92 | gtt -0.81 | ggn -0.23
+[17:08:17] Variables con coeficiente no nulo: 12. Su estabilidad entre particiones está en el paso 17.
+[17:08:17] Advertencias del tuning guardadas: 5 (convergencia de glmnet en lambdas pequeños; ver README).
+[17:08:17]     tabla: resultados_elastic_net_final/tablas/14_error_por_degradacion.csv
+[17:08:17] Paso 14 terminado.
+[17:08:17] === Paso 15: sensibilidad a ruido de sensores (LOSO, solo entrenamiento) ===
+[17:08:17] Leyendo datos/data.txt
+[17:08:17]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
+[17:08:17]   [OK] sin valores faltantes
+[17:08:17]   [OK] sin filas duplicadas
+[17:08:17]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
+[17:08:17]   [OK] respuesta y dentro de [0, 5] puntos %
+[17:08:17]   [OK] existe la velocidad reservada (15 nudos)
+[17:08:17]   [OK] sin filas compartidas: entrenamiento / test aleatorio
+[17:08:17]   [OK] sin filas compartidas: entrenamiento / test de velocidad
+[17:08:17]   [OK] sin filas compartidas entre los dos test
+[17:08:17]   [OK] la velocidad reservada no aparece en el entrenamiento
+[17:08:17]   [OK] las tres particiones suman todas las filas
+[17:08:17]     tabla: resultados_elastic_net_final/tablas/02_particion.csv
+[17:08:17] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
+[17:08:17]   [OK] ruido, 3 nudos: la velocidad evaluada no está en el ajuste
+[17:08:18]   [OK] ruido, 6 nudos: la velocidad evaluada no está en el ajuste
+[17:08:19]   [OK] ruido, 9 nudos: la velocidad evaluada no está en el ajuste
+[17:08:19]   [OK] ruido, 12 nudos: la velocidad evaluada no está en el ajuste
+[17:08:20]   [OK] ruido, 18 nudos: la velocidad evaluada no está en el ajuste
+[17:08:21]   [OK] ruido, 21 nudos: la velocidad evaluada no está en el ajuste
+[17:08:21]   [OK] ruido, 24 nudos: la velocidad evaluada no está en el ajuste
+[17:08:22]   [OK] ruido, 27 nudos: la velocidad evaluada no está en el ajuste
+[17:08:23]     tabla: resultados_elastic_net_final/tablas/15_sensibilidad_ruido_por_velocidad.csv
+[17:08:23]     tabla: resultados_elastic_net_final/tablas/15_resumen_sensibilidad_ruido.csv
+[17:08:23] Ruido de 1 % de la DE en 11 sensores: el RMSE LOSO sube 0.42 % en promedio (máximo 0.82 %)
+[17:08:23] Paso 15 terminado. Simulación de ruido, no validación con sensores reales; los test no se utilizaron.
+[17:08:23] === Paso 16: intervalos de predicción con el cuantil empírico de los residuos LOSO ===
+[17:08:23]   [OK] calibración con 8486 residuos LOSO del entrenamiento (uno por fila, sin faltantes)
+[17:08:23]   [OK] ningún residuo de calibración pertenece a los test
+[17:08:23] Nivel 80% | interpolacion | semiancho = 1.587 | cobertura = 87.3% | ancho medio = 3.121
+[17:08:23] Nivel 80% | velocidad_15  | semiancho = 1.587 | cobertura = 87.0% | ancho medio = 3.157
+[17:08:23] Nivel 90% | interpolacion | semiancho = 1.943 | cobertura = 96.3% | ancho medio = 3.704
+[17:08:23] Nivel 90% | velocidad_15  | semiancho = 1.943 | cobertura = 97.3% | ancho medio = 3.765
+[17:08:23] Nivel 95% | interpolacion | semiancho = 2.192 | cobertura = 98.7% | ancho medio = 4.054
+[17:08:23] Nivel 95% | velocidad_15  | semiancho = 2.192 | cobertura = 99.2% | ancho medio = 4.104
+[17:08:23]   [OK] existe un umbral con la sensibilidad objetivo en las predicciones LOSO
+[17:08:23] Umbral de alerta elegido con LOSO: 2.5 puntos % (sensibilidad objetivo 90 %)
+[17:08:23]   entrenamiento (LOSO)  sensibilidad = 0.903 | falsas alarmas = 0.364 | alertas = 0.481
+[17:08:23]   interpolacion         sensibilidad = 0.946 | falsas alarmas = 0.356 | alertas = 0.479
+[17:08:23]   velocidad_15          sensibilidad = 1.000 | falsas alarmas = 0.653 | alertas = 0.728
+[17:08:23] Paso 16 terminado. Los test solo se usaron para verificar cobertura y política.
+[17:08:23] Leyendo datos/data.txt
+[17:08:23]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
+[17:08:23]   [OK] sin valores faltantes
+[17:08:23]   [OK] sin filas duplicadas
+[17:08:23]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
+[17:08:23]   [OK] respuesta y dentro de [0, 5] puntos %
+[17:08:23]   [OK] existe la velocidad reservada (15 nudos)
+[17:08:23]   [OK] sin filas compartidas: entrenamiento / test aleatorio
+[17:08:23]   [OK] sin filas compartidas: entrenamiento / test de velocidad
+[17:08:23]   [OK] sin filas compartidas entre los dos test
+[17:08:23]   [OK] la velocidad reservada no aparece en el entrenamiento
+[17:08:23]   [OK] las tres particiones suman todas las filas
+[17:08:23]     tabla: resultados_elastic_net_final/tablas/02_particion.csv
+[17:08:23] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
+[17:08:23] Hiperparámetros finales: alpha = 0.5; lambda = 0.005995
+[17:08:23] Grilla de lambda: 1e-04 a 1. Lambda en el borde inferior: FALSE
+[17:08:23]     tabla: resultados_elastic_net_final/tablas/17_convergencia_estricta.csv
+[17:08:23] Convergencia estricta (tol. 1e-10): diferencia de RMSE = 0.00042; diferencia máxima de predicción = 0.0232
+[17:08:23]     tabla: resultados_elastic_net_final/tablas/17_coeficientes_por_fold.csv
+[17:08:23]     tabla: resultados_elastic_net_final/tablas/17_estabilidad_coeficientes.csv
+[17:08:23] Variables que cambian de signo entre particiones: ggn
+[17:08:23] Paso 17 terminado. Las métricas LOSO de OLS, RF y XGBoost se calculan en el paso 20.
+[17:08:23] Leyendo datos/data.txt
+[17:08:24]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
+[17:08:24]   [OK] sin valores faltantes
+[17:08:24]   [OK] sin filas duplicadas
+[17:08:24]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
+[17:08:24]   [OK] respuesta y dentro de [0, 5] puntos %
+[17:08:24]   [OK] existe la velocidad reservada (15 nudos)
+[17:08:24]   [OK] sin filas compartidas: entrenamiento / test aleatorio
+[17:08:24]   [OK] sin filas compartidas: entrenamiento / test de velocidad
+[17:08:24]   [OK] sin filas compartidas entre los dos test
+[17:08:24]   [OK] la velocidad reservada no aparece en el entrenamiento
+[17:08:24]   [OK] las tres particiones suman todas las filas
+[17:08:24]     tabla: resultados_elastic_net_final/tablas/02_particion.csv
+[17:08:24] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
+[17:08:24]     tabla: resultados_elastic_net_final/tablas/05_ols_vif.csv
+[17:08:24] VIF máximo: p48 = 49907.4
+[17:08:24]     tabla: resultados_elastic_net_final/tablas/05_ols_observaciones_influyentes.csv
+[17:08:24] Observaciones con Cook > 4/n: 442 (5.21%)
+[17:08:24]     figura: resultados_elastic_net_final/figuras/05_ols_residuos_vs_ajustados.png
+[17:08:25]     tabla: resultados_elastic_net_final/tablas/18_diagnostico_ols_por_velocidad.csv
+[17:08:25]     tabla: resultados_elastic_net_final/tablas/18_vif_por_velocidad.csv
+[17:08:25] OLS LOSO: RMSE medio = 5.198; VIF máximo entre particiones = 130360.5; particiones con coeficientes NA = 0
+[17:08:25] Paso 18 terminado. Los test no se utilizaron.
+[17:08:25] Leyendo datos/data.txt
+[17:08:25]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
+[17:08:25]   [OK] sin valores faltantes
+[17:08:25]   [OK] sin filas duplicadas
+[17:08:25]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
+[17:08:25]   [OK] respuesta y dentro de [0, 5] puntos %
+[17:08:25]   [OK] existe la velocidad reservada (15 nudos)
+[17:08:25]   [OK] sin filas compartidas: entrenamiento / test aleatorio
+[17:08:25]   [OK] sin filas compartidas: entrenamiento / test de velocidad
+[17:08:25]   [OK] sin filas compartidas entre los dos test
+[17:08:25]   [OK] la velocidad reservada no aparece en el entrenamiento
+[17:08:25]   [OK] las tres particiones suman todas las filas
+[17:08:25]     tabla: resultados_elastic_net_final/tablas/02_particion.csv
+[17:08:25] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
+[17:08:25]   velocidad 3: árbol fijo RMSE = 2.688 | promedio EN+Ridge RMSE = 1.560
+[17:08:25]   velocidad 6: árbol fijo RMSE = 1.693 | promedio EN+Ridge RMSE = 1.397
+[17:08:26]   velocidad 9: árbol fijo RMSE = 1.955 | promedio EN+Ridge RMSE = 1.190
+[17:08:26]   velocidad 12: árbol fijo RMSE = 1.836 | promedio EN+Ridge RMSE = 1.245
+[17:08:26]   velocidad 18: árbol fijo RMSE = 2.478 | promedio EN+Ridge RMSE = 1.409
+[17:08:26]   velocidad 21: árbol fijo RMSE = 2.010 | promedio EN+Ridge RMSE = 1.174
+[17:08:26]   velocidad 24: árbol fijo RMSE = 2.492 | promedio EN+Ridge RMSE = 0.868
+[17:08:26]   velocidad 27: árbol fijo RMSE = 2.586 | promedio EN+Ridge RMSE = 0.956
+[17:08:26]     tabla: resultados_elastic_net_final/tablas/19_detalle_arbol_promedio.csv
+[17:08:26]     tabla: resultados_elastic_net_final/tablas/19_predicciones_arbol_promedio.csv
+[17:08:26]     tabla: resultados_elastic_net_final/tablas/19_ranking_arbol_promedio.csv
+[17:08:26] Ranking LOSO: Promedio ENet+Ridge 1.225 | Elastic-net reajustado 1.243 | Ridge reajustado 1.253 | Baseline global 1.476 | Arbol fijo 2.217
+[17:08:26]   [OK] Elastic-net reajustado en el paso 19 reproduce el paso 11 (dif. max. = 4e-15)
+[17:08:26]   [OK] Ridge reajustado en el paso 19 reproduce el paso 11 (dif. max. = 4.88e-15)
+[17:08:26] Paso 19 terminado. Los test no se utilizaron.
+[17:08:26] === Paso 20: métricas LOSO de OLS, GAM, Random Forest y XGBoost ===
+[17:08:26] Leyendo datos/data.txt
+[17:08:26]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
+[17:08:26]   [OK] sin valores faltantes
+[17:08:26]   [OK] sin filas duplicadas
+[17:08:26]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
+[17:08:26]   [OK] respuesta y dentro de [0, 5] puntos %
+[17:08:26]   [OK] existe la velocidad reservada (15 nudos)
+[17:08:26]   [OK] sin filas compartidas: entrenamiento / test aleatorio
+[17:08:26]   [OK] sin filas compartidas: entrenamiento / test de velocidad
+[17:08:26]   [OK] sin filas compartidas entre los dos test
+[17:08:26]   [OK] la velocidad reservada no aparece en el entrenamiento
+[17:08:26]   [OK] las tres particiones suman todas las filas
+[17:08:26]     tabla: resultados_elastic_net_final/tablas/02_particion.csv
+[17:08:26] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
+[17:08:26] Fórmula GAM: y ~ s(gtt, bs = "cr") + s(ggn, bs = "cr") + s(t48, bs = "cr") + s(t2, bs = "cr") + s(p2, bs = "cr") + s(mf, bs = "cr") + s(tic, bs = "cr") + v + gtn + ts + p48 + pexh
+[17:08:37]   [OK] OLS: predicciones válidas a 3 nudos
+[17:08:37]   [OK] GAM: predicciones válidas a 3 nudos
+[17:08:47]   [OK] OLS: predicciones válidas a 6 nudos
+[17:08:47]   [OK] GAM: predicciones válidas a 6 nudos
+[17:08:55]   [OK] OLS: predicciones válidas a 9 nudos
+[17:08:55]   [OK] GAM: predicciones válidas a 9 nudos
+[17:09:04]   [OK] OLS: predicciones válidas a 12 nudos
+[17:09:04]   [OK] GAM: predicciones válidas a 12 nudos
+[17:09:16]   [OK] OLS: predicciones válidas a 18 nudos
+[17:09:16]   [OK] GAM: predicciones válidas a 18 nudos
+[17:09:28]   [OK] OLS: predicciones válidas a 21 nudos
+[17:09:28]   [OK] GAM: predicciones válidas a 21 nudos
+[17:09:34]   [OK] OLS: predicciones válidas a 24 nudos
+[17:09:34]   [OK] GAM: predicciones válidas a 24 nudos
+[17:09:42]   [OK] OLS: predicciones válidas a 27 nudos
+[17:09:42]   [OK] GAM: predicciones válidas a 27 nudos
+[17:09:42] LOSO (media de 8 velocidades): OLS RMSE = 5.198 | GAM RMSE = 18.107
+[17:09:42] Paso 20 terminado.
+[17:09:42] === Paso 21: Tabla 1 consolidada ===
+[17:09:42]   [OK] cada modelo de la Tabla 1 tiene 8 velocidades evaluadas
+[17:09:42] Tabla 1: Promedio EN + Ridge 1.225 | Elastic-net 1.243 | Ridge 1.253 | Lasso 1.334 | Media global (baseline) 1.476 | XGBoost 1.778 | Random Forest 1.781 | Árbol de regresión 2.053 | Splines naturales 2.736 | OLS 5.198 | GAM 18.107
+[17:09:42] Elastic-net - Ridge: -0.010 [-0.111; 0.091]
+[17:09:42] Paso 21 terminado.
+[17:09:42] === Paso 22: importancia por permutación, PDP e ICE ===
+[17:09:42] Leyendo datos/data.txt
+[17:09:42]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
+[17:09:42]   [OK] sin valores faltantes
+[17:09:42]   [OK] sin filas duplicadas
+[17:09:42]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
+[17:09:42]   [OK] respuesta y dentro de [0, 5] puntos %
+[17:09:42]   [OK] existe la velocidad reservada (15 nudos)
+[17:09:42]   [OK] sin filas compartidas: entrenamiento / test aleatorio
+[17:09:42]   [OK] sin filas compartidas: entrenamiento / test de velocidad
+[17:09:42]   [OK] sin filas compartidas entre los dos test
+[17:09:42]   [OK] la velocidad reservada no aparece en el entrenamiento
+[17:09:42]   [OK] las tres particiones suman todas las filas
+[17:09:42]     tabla: resultados_elastic_net_final/tablas/02_particion.csv
+[17:09:42] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
+[17:09:42]   [OK] el archivo de parámetros tiene penalty y mixture
+[17:09:42]   [OK] permutación, 3 nudos: la velocidad evaluada no está en el ajuste
+[17:09:43]   permutación terminada: velocidad excluida 3 nudos
+[17:09:43]   [OK] permutación, 6 nudos: la velocidad evaluada no está en el ajuste
+[17:09:43]   permutación terminada: velocidad excluida 6 nudos
+[17:09:43]   [OK] permutación, 9 nudos: la velocidad evaluada no está en el ajuste
+[17:09:44]   permutación terminada: velocidad excluida 9 nudos
+[17:09:44]   [OK] permutación, 12 nudos: la velocidad evaluada no está en el ajuste
+[17:09:45]   permutación terminada: velocidad excluida 12 nudos
+[17:09:45]   [OK] permutación, 18 nudos: la velocidad evaluada no está en el ajuste
+[17:09:45]   permutación terminada: velocidad excluida 18 nudos
+[17:09:45]   [OK] permutación, 21 nudos: la velocidad evaluada no está en el ajuste
+[17:09:46]   permutación terminada: velocidad excluida 21 nudos
+[17:09:46]   [OK] permutación, 24 nudos: la velocidad evaluada no está en el ajuste
+[17:09:47]   permutación terminada: velocidad excluida 24 nudos
+[17:09:47]   [OK] permutación, 27 nudos: la velocidad evaluada no está en el ajuste
+[17:09:47]   permutación terminada: velocidad excluida 27 nudos
+[17:09:47]     tabla: resultados_elastic_net_final/tablas/22_importancia_permutacion_detalle.csv
+[17:09:47]     tabla: resultados_elastic_net_final/tablas/22_importancia_permutacion.csv
+[17:09:47] Variables más importantes: t2, pexh, p2, tic
+[17:09:48]     figura: resultados_elastic_net_final/figuras/22_importancia_permutacion.png
+[17:09:48]   [OK] PDP/ICE de t2: predicciones válidas
+[17:09:48]   [OK] PDP/ICE de pexh: predicciones válidas
+[17:09:48]   [OK] PDP/ICE de p2: predicciones válidas
+[17:09:48]   [OK] PDP/ICE de tic: predicciones válidas
+[17:09:48]     tabla: resultados_elastic_net_final/tablas/22_ice.csv
+[17:09:48]     tabla: resultados_elastic_net_final/tablas/22_pdp.csv
+[17:09:48]     figura: resultados_elastic_net_final/figuras/22_pdp_ice.png
+[17:09:48] Paso 22 terminado. Los test no se utilizaron.
+[17:10:01] === Paso 24: multicolinealidad y valores SHAP (solo entrenamiento) ===
+[17:10:01] Leyendo datos/data.txt
+[17:10:01]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
+[17:10:01]   [OK] sin valores faltantes
+[17:10:01]   [OK] sin filas duplicadas
+[17:10:01]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
+[17:10:01]   [OK] respuesta y dentro de [0, 5] puntos %
+[17:10:01]   [OK] existe la velocidad reservada (15 nudos)
+[17:10:01]   [OK] sin filas compartidas: entrenamiento / test aleatorio
+[17:10:01]   [OK] sin filas compartidas: entrenamiento / test de velocidad
+[17:10:01]   [OK] sin filas compartidas entre los dos test
+[17:10:01]   [OK] la velocidad reservada no aparece en el entrenamiento
+[17:10:01]   [OK] las tres particiones suman todas las filas
+[17:10:01]     tabla: resultados_elastic_net_final/tablas/02_particion.csv
+[17:10:01] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
+[17:10:01]     tabla: resultados_elastic_net_final/tablas/24_correlaciones_predictores.csv
+[17:10:01] Pares de predictores con |correlación| >= 0,9: 65 de 66
+[17:10:02]     figura: resultados_elastic_net_final/figuras/24_correlaciones_predictores.png
+[17:10:02]   [OK] el VIF del paso 18 cubre los mismos predictores
+[17:10:02]     figura: resultados_elastic_net_final/figuras/24_vif.png
+[17:10:02]   [OK] aditividad SHAP: predicción media + suma de los SHAP = predicción del modelo
+[17:10:02]     tabla: resultados_elastic_net_final/tablas/24_shap_importancia.csv
+[17:10:02] SHAP |medio| (puntos %): t2 7.336 | pexh 3.951 | p2 2.986 | v 1.711 | ts 1.651 | gtn 1.282 | p48 1.250 | t48 0.973 | tic 0.800 | mf 0.766 | gtt 0.697 | ggn 0.221
+[17:10:02] Predicción media (base de los SHAP) = 2.499 puntos %
+[17:10:02]     tabla: resultados_elastic_net_final/tablas/24_shap_muestra.csv
+[17:10:03]     figura: resultados_elastic_net_final/figuras/24_shap_enjambre.png
+[17:10:03] Paso 24 terminado. Los test no se utilizaron.
+[17:10:03] === Paso 25: curva de error de entrenamiento vs validación (Elastic-net) ===
+[17:10:03] Leyendo datos/data.txt
+[17:10:03]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
+[17:10:03]   [OK] sin valores faltantes
+[17:10:03]   [OK] sin filas duplicadas
+[17:10:03]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
+[17:10:03]   [OK] respuesta y dentro de [0, 5] puntos %
+[17:10:03]   [OK] existe la velocidad reservada (15 nudos)
+[17:10:03]   [OK] sin filas compartidas: entrenamiento / test aleatorio
+[17:10:03]   [OK] sin filas compartidas: entrenamiento / test de velocidad
+[17:10:03]   [OK] sin filas compartidas entre los dos test
+[17:10:03]   [OK] la velocidad reservada no aparece en el entrenamiento
+[17:10:03]   [OK] las tres particiones suman todas las filas
+[17:10:03]     tabla: resultados_elastic_net_final/tablas/02_particion.csv
+[17:10:03] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
+[17:10:04]   [OK] curva: un punto de validación por cada lambda de la grilla
+[17:10:04]   [OK] RMSE de entrenamiento con el lambda elegido = paso 17 (1.029)
+[17:10:04]     tabla: resultados_elastic_net_final/tablas/25_curva_entrenamiento_validacion.csv
+[17:10:04] Lambda elegido 0.0060: entrenamiento 1.029 (MAE 0.852) | validación LOSO 1.199 | test aleatorio 1.007 | test 15 nudos 1.053
+[17:10:04] Lambda más chico (1e-04): entrenamiento 0.709 | validación LOSO 2.021 (brecha 1.312)
+[17:10:04]     figura: resultados_elastic_net_final/figuras/25_curva_entrenamiento_validacion.png
+[17:10:04] Paso 25 terminado. No se evaluó ningún λ nuevo en los test.
+[20:17:28] === Paso 26: figuras de la presentación ===
+[20:17:28] Leyendo datos/data.txt
+[20:17:29]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
+[20:17:29]   [OK] sin valores faltantes
+[20:17:29]   [OK] sin filas duplicadas
+[20:17:29]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
+[20:17:29]   [OK] respuesta y dentro de [0, 5] puntos %
+[20:17:29]   [OK] existe la velocidad reservada (15 nudos)
+[20:17:29]   [OK] sin filas compartidas: entrenamiento / test aleatorio
+[20:17:29]   [OK] sin filas compartidas: entrenamiento / test de velocidad
+[20:17:29]   [OK] sin filas compartidas entre los dos test
+[20:17:29]   [OK] la velocidad reservada no aparece en el entrenamiento
+[20:17:29]   [OK] las tres particiones suman todas las filas
+[20:17:29]     tabla: resultados_elastic_net_final/tablas/02_particion.csv
+[20:17:29] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
+[20:17:29]   [OK] pendiente de T2 igual a la del paso 10 (0.17533)
+[20:17:29]     figura: resultados_elastic_net_final/figuras/presentacion/26_lamina04_relacion_t2.png
+[20:17:30]     figura: resultados_elastic_net_final/figuras/presentacion/26_lamina06_vif.png
+[20:17:30]     figura: resultados_elastic_net_final/figuras/presentacion/26_lamina07_rmse_tabla1.png
+[20:17:31]     figura: resultados_elastic_net_final/figuras/presentacion/26_lamina08_pdp_ice.png
+[20:17:31]     figura: resultados_elastic_net_final/figuras/presentacion/26_lamina08_shap.png
+[20:17:32]     figura: resultados_elastic_net_final/figuras/presentacion/26_lamina10_borde_3_nudos.png
+[20:17:32] Paso 26 terminado. Solo grafica tablas ya generadas; los test no se utilizaron.

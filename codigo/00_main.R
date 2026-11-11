@@ -11,7 +11,7 @@
 #             source("codigo/00_main.R")
 #   Terminal: Rscript codigo/00_main.R
 # Ejecuta los pasos 10 a 26 (lista "pasos" más abajo).
-# Tiempo aproximado: 60-100 min según el computador con anidar_ensembles = TRUE (58,7 min en la
+# Tiempo aproximado: 60-100 min según el computador con anidar_ensembles = TRUE (60,8 min en la
 # ejecución oficial; unos 5 min con FALSE); la validación
 # anidada de Random Forest y XGBoost es la etapa más lenta.
 # Los parámetros se cambian SOLO en codigo/R/00_config.R.

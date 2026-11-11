@@ -67,7 +67,7 @@ Rscript codigo/00_main.R
 
 * Ejecuta los pasos 10 a 26 en orden, borra los resultados anteriores y regenera todas
   las tablas y figuras. Tiempo: entre 60 y 100 minutos según el computador con `anidar_ensembles = TRUE`
-  (58,7 min en la ejecución oficial; la validación
+  (60,8 min en la ejecución oficial; la validación
   anidada de Random Forest y XGBoost es la parte lenta); unos 5 minutos con `FALSE`.
 * Semilla global `20261016` y un solo hilo, en `codigo/R/00_config.R`. Es el único lugar
   donde se cambian parámetros.

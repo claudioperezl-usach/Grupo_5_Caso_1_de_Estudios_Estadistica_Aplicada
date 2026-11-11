@@ -1,23 +1,23 @@
 EJECUCIÓN COMPLETA
-Fecha: 2026-11-09 22:18:36
+Fecha: 2026-11-11 17:10:04
 Semilla: 20261016
-10_auditoria_inferencia.R                  0.13 min
-11_validacion_anidada_velocidad.R         56.64 min
+10_auditoria_inferencia.R                  0.15 min
+11_validacion_anidada_velocidad.R         58.72 min
 12_entrenamiento_final_elastic_net.R       0.08 min
 13_graficos_finales.R                      0.02 min
 14_diagnosticos_elastic_net.R              0.00 min
-15_sensibilidad_ruido.R                    0.10 min
+15_sensibilidad_ruido.R                    0.09 min
 16_intervalos_predictivos.R                0.00 min
 17_comprobaciones_adicionales.R            0.01 min
-18_diagnostico_OLS_y_metodologia.R         0.03 min
-19_arbol_y_promedio_loso.R                 0.03 min
-20_loso_ols_rf_xgb.R                       1.25 min
+18_diagnostico_OLS_y_metodologia.R         0.02 min
+19_arbol_y_promedio_loso.R                 0.02 min
+20_loso_ols_rf_xgb.R                       1.26 min
 21_tabla1_final.R                          0.00 min
 22_interpretacion_pdp_ice.R                0.11 min
 23_cv_aleatoria_vs_loso.R                  0.21 min
 24_multicolinealidad_shap.R                0.03 min
 25_curva_entrenamiento_vs_validacion.R     0.02 min
-Tiempo total: 58.7 min
+Tiempo total: 60.8 min
 Modelo final entrenado y evaluado en test (paso 12): Elastic-net.
 Menor RMSE en la validación anidada LOSO (paso 11): Elastic-net (RMSE medio 1.2428).
 El modelo final coincide con el mejor del ranking anidado.

@@ -144,3 +144,13 @@ registra "[OK] el ranking anidado reproduce la ejecución de referencia (dif. m�
 - Nuevo paso 26: genera las imágenes de la presentación (láminas 4, 6, 7, 8 y 10) a 350 dpi desde
   las tablas que ya produce el script; no calcula resultados nuevos. Verifica que la pendiente de T2
   de la lámina 4 coincide con la del paso 10. Requiere el paquete gridExtra (agregado a la lista).
+
+---
+
+# Revisión 8: ejecución de verificación del equipo
+
+- Nueva ejecución completa en una sesión limpia (Windows 11, R 4.6.1; 60,8 min, pasos 10 a 25):
+  el paso 11 registra "[OK] el ranking anidado reproduce la ejecución de referencia
+  (dif. máx. = 4e-15)" y sus 49 tablas son idénticas a las de la ejecución anterior.
+  Sus resultados son los que se entregan. El paso 26 (figuras de la presentación) se ejecutó
+  después sobre esas mismas tablas, con imágenes idénticas a las de la presentación.

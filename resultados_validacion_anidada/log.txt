@@ -1,116 +1,116 @@
-[21:20:05] === Paso 11: validación anidada por velocidad ===
-[21:20:05] Leyendo datos/data.txt
-[21:20:05]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
-[21:20:05]   [OK] sin valores faltantes
-[21:20:05]   [OK] sin filas duplicadas
-[21:20:05]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
-[21:20:05]   [OK] respuesta y dentro de [0, 5] puntos %
-[21:20:05]   [OK] existe la velocidad reservada (15 nudos)
-[21:20:05]   [OK] sin filas compartidas: entrenamiento / test aleatorio
-[21:20:05]   [OK] sin filas compartidas: entrenamiento / test de velocidad
-[21:20:05]   [OK] sin filas compartidas entre los dos test
-[21:20:05]   [OK] la velocidad reservada no aparece en el entrenamiento
-[21:20:05]   [OK] las tres particiones suman todas las filas
-[21:20:05]     tabla: resultados_validacion_anidada/tablas/02_particion.csv
-[21:20:05] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
-[21:20:05]   [OK] el entrenamiento contiene 8 velocidades y excluye la velocidad reservada
-[21:20:05] Candidatos anidados: Elastic-net, Ridge, Lasso, Splines naturales, Árbol de regresión, Random Forest, XGBoost
-[21:20:05] Velocidad externa excluida: 3 nudos
-[21:20:05]   [OK] partición externa 3 nudos: 7 velocidades de ajuste y ninguna fila de la evaluada
-[21:20:08]   Elastic-net          RMSE externo = 1.5344
-[21:20:10]   Ridge                RMSE externo = 1.5899
-[21:20:11]   Lasso                RMSE externo = 1.6732
-[21:20:17]   Splines naturales    RMSE externo = 4.5184
-[21:20:29]   Árbol de regresión RMSE externo = 1.5266
-[21:26:04]   Random Forest        RMSE externo = 2.1513
-[21:26:57]   XGBoost              RMSE externo = 2.4330
-[21:26:57] Velocidad externa excluida: 6 nudos
-[21:26:57]   [OK] partición externa 6 nudos: 7 velocidades de ajuste y ninguna fila de la evaluada
-[21:27:01]   Elastic-net          RMSE externo = 1.3761
-[21:27:02]   Ridge                RMSE externo = 1.4319
-[21:27:04]   Lasso                RMSE externo = 1.4201
-[21:27:08]   Splines naturales    RMSE externo = 0.4756
-[21:27:21]   Árbol de regresión RMSE externo = 1.5228
-[21:32:58]   Random Forest        RMSE externo = 1.6390
-[21:33:51]   XGBoost              RMSE externo = 1.6417
-[21:33:51] Velocidad externa excluida: 9 nudos
-[21:33:51]   [OK] partición externa 9 nudos: 7 velocidades de ajuste y ninguna fila de la evaluada
-[21:33:54]   Elastic-net          RMSE externo = 1.1146
-[21:33:56]   Ridge                RMSE externo = 1.2720
-[21:33:57]   Lasso                RMSE externo = 1.1863
-[21:34:03]   Splines naturales    RMSE externo = 0.4680
-[21:34:15]   Árbol de regresión RMSE externo = 1.7494
-[21:40:05]   Random Forest        RMSE externo = 1.6202
-[21:41:00]   XGBoost              RMSE externo = 1.4872
-[21:41:00] Velocidad externa excluida: 12 nudos
-[21:41:00]   [OK] partición externa 12 nudos: 7 velocidades de ajuste y ninguna fila de la evaluada
-[21:41:03]   Elastic-net          RMSE externo = 1.2252
-[21:41:05]   Ridge                RMSE externo = 1.2663
-[21:41:06]   Lasso                RMSE externo = 1.1716
-[21:41:11]   Splines naturales    RMSE externo = 0.7518
-[21:41:24]   Árbol de regresión RMSE externo = 2.0009
-[21:47:16]   Random Forest        RMSE externo = 1.6937
-[21:48:10]   XGBoost              RMSE externo = 1.5227
-[21:48:10] Velocidad externa excluida: 18 nudos
-[21:48:10]   [OK] partición externa 18 nudos: 7 velocidades de ajuste y ninguna fila de la evaluada
-[21:48:13]   Elastic-net          RMSE externo = 1.4215
-[21:48:16]   Ridge                RMSE externo = 1.3994
-[21:48:17]   Lasso                RMSE externo = 1.4390
-[21:48:22]   Splines naturales    RMSE externo = 0.9450
-[21:48:35]   Árbol de regresión RMSE externo = 2.2843
-[21:54:19]   Random Forest        RMSE externo = 1.8559
-[21:55:13]   XGBoost              RMSE externo = 1.4808
-[21:55:13] Velocidad externa excluida: 21 nudos
-[21:55:13]   [OK] partición externa 21 nudos: 7 velocidades de ajuste y ninguna fila de la evaluada
-[21:55:16]   Elastic-net          RMSE externo = 1.4469
-[21:55:18]   Ridge                RMSE externo = 1.2123
-[21:55:19]   Lasso                RMSE externo = 1.4771
-[21:55:24]   Splines naturales    RMSE externo = 1.8155
-[21:55:37]   Árbol de regresión RMSE externo = 2.2616
-[22:01:26]   Random Forest        RMSE externo = 1.4874
-[22:02:19]   XGBoost              RMSE externo = 1.5268
-[22:02:19] Velocidad externa excluida: 24 nudos
-[22:02:19]   [OK] partición externa 24 nudos: 7 velocidades de ajuste y ninguna fila de la evaluada
-[22:02:23]   Elastic-net          RMSE externo = 0.8258
-[22:02:24]   Ridge                RMSE externo = 0.9215
-[22:02:26]   Lasso                RMSE externo = 0.9984
-[22:02:31]   Splines naturales    RMSE externo = 1.3964
-[22:02:43]   Árbol de regresión RMSE externo = 2.4916
-[22:08:27]   Random Forest        RMSE externo = 1.5382
-[22:09:21]   XGBoost              RMSE externo = 1.6321
-[22:09:21] Velocidad externa excluida: 27 nudos
-[22:09:21]   [OK] partición externa 27 nudos: 7 velocidades de ajuste y ninguna fila de la evaluada
-[22:09:24]   Elastic-net          RMSE externo = 0.9982
-[22:09:25]   Ridge                RMSE externo = 0.9287
-[22:09:27]   Lasso                RMSE externo = 1.3068
-[22:09:32]   Splines naturales    RMSE externo = 11.5213
-[22:09:45]   Árbol de regresión RMSE externo = 2.5865
-[22:15:47]   Random Forest        RMSE externo = 2.2620
-[22:16:43]   XGBoost              RMSE externo = 2.4980
-[22:16:43]   [OK] cada modelo tiene exactamente 8 evaluaciones externas
-[22:16:43] Ranking anidado: Elastic-net = 1.2428 | Ridge = 1.2527 | Lasso = 1.3341 | Baseline global = 1.4762 | XGBoost = 1.7778 | Random Forest = 1.7809 | Árbol de regresión = 2.0530 | Splines naturales = 2.7365
-[22:16:43] La configuración cambió respecto de la referencia: se crea una nueva referencia (no se compara).
-[22:16:43] Referencia de reproducibilidad guardada en codigo/referencia/ranking_anidado_referencia.csv. Vuelva a ejecutar desde una sesión limpia para verificarla.
-[22:16:43] Paso 11 terminado. No se evaluaron los test.
-[22:18:20] === Paso 23: validación aleatoria frente a LOSO (solo entrenamiento) ===
-[22:18:20] Leyendo datos/data.txt
-[22:18:20]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
-[22:18:20]   [OK] sin valores faltantes
-[22:18:20]   [OK] sin filas duplicadas
-[22:18:20]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
-[22:18:20]   [OK] respuesta y dentro de [0, 5] puntos %
-[22:18:20]   [OK] existe la velocidad reservada (15 nudos)
-[22:18:20]   [OK] sin filas compartidas: entrenamiento / test aleatorio
-[22:18:20]   [OK] sin filas compartidas: entrenamiento / test de velocidad
-[22:18:20]   [OK] sin filas compartidas entre los dos test
-[22:18:20]   [OK] la velocidad reservada no aparece en el entrenamiento
-[22:18:20]   [OK] las tres particiones suman todas las filas
-[22:18:20]     tabla: resultados_validacion_anidada/tablas/02_particion.csv
-[22:18:20] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
-[22:18:23]   Elastic-net        RMSE CV aleatoria = 0.699 | RMSE LOSO = 2.396
-[22:18:25]   Ridge              RMSE CV aleatoria = 1.112 | RMSE LOSO = 1.183
-[22:18:27]   Lasso              RMSE CV aleatoria = 0.699 | RMSE LOSO = 2.485
-[22:18:32]   Splines naturales  RMSE CV aleatoria = 0.011 | RMSE LOSO = 18.520
-[22:18:32]     tabla: resultados_validacion_anidada/tablas/23_cv_aleatoria_vs_loso.csv
-[22:18:32] Mejor por CV aleatoria: Splines naturales | mejor por LOSO: Ridge
-[22:18:32] Paso 23 terminado. Los test no se utilizaron.
+[16:09:28] === Paso 11: validación anidada por velocidad ===
+[16:09:28] Leyendo datos/data.txt
+[16:09:28]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
+[16:09:28]   [OK] sin valores faltantes
+[16:09:28]   [OK] sin filas duplicadas
+[16:09:28]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
+[16:09:28]   [OK] respuesta y dentro de [0, 5] puntos %
+[16:09:28]   [OK] existe la velocidad reservada (15 nudos)
+[16:09:28]   [OK] sin filas compartidas: entrenamiento / test aleatorio
+[16:09:28]   [OK] sin filas compartidas: entrenamiento / test de velocidad
+[16:09:28]   [OK] sin filas compartidas entre los dos test
+[16:09:28]   [OK] la velocidad reservada no aparece en el entrenamiento
+[16:09:28]   [OK] las tres particiones suman todas las filas
+[16:09:28]     tabla: resultados_validacion_anidada/tablas/02_particion.csv
+[16:09:28] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
+[16:09:28]   [OK] el entrenamiento contiene 8 velocidades y excluye la velocidad reservada
+[16:09:28] Candidatos anidados: Elastic-net, Ridge, Lasso, Splines naturales, Árbol de regresión, Random Forest, XGBoost
+[16:09:28] Velocidad externa excluida: 3 nudos
+[16:09:28]   [OK] partición externa 3 nudos: 7 velocidades de ajuste y ninguna fila de la evaluada
+[16:09:32]   Elastic-net          RMSE externo = 1.5344
+[16:09:34]   Ridge                RMSE externo = 1.5899
+[16:09:36]   Lasso                RMSE externo = 1.6732
+[16:09:41]   Splines naturales    RMSE externo = 4.5184
+[16:09:54]   Árbol de regresión RMSE externo = 1.5266
+[16:15:40]   Random Forest        RMSE externo = 2.1513
+[16:16:35]   XGBoost              RMSE externo = 2.4330
+[16:16:35] Velocidad externa excluida: 6 nudos
+[16:16:35]   [OK] partición externa 6 nudos: 7 velocidades de ajuste y ninguna fila de la evaluada
+[16:16:38]   Elastic-net          RMSE externo = 1.3761
+[16:16:39]   Ridge                RMSE externo = 1.4319
+[16:16:41]   Lasso                RMSE externo = 1.4201
+[16:16:46]   Splines naturales    RMSE externo = 0.4756
+[16:17:00]   Árbol de regresión RMSE externo = 1.5228
+[16:23:02]   Random Forest        RMSE externo = 1.6390
+[16:23:57]   XGBoost              RMSE externo = 1.6417
+[16:23:57] Velocidad externa excluida: 9 nudos
+[16:23:57]   [OK] partición externa 9 nudos: 7 velocidades de ajuste y ninguna fila de la evaluada
+[16:24:01]   Elastic-net          RMSE externo = 1.1146
+[16:24:03]   Ridge                RMSE externo = 1.2720
+[16:24:04]   Lasso                RMSE externo = 1.1863
+[16:24:10]   Splines naturales    RMSE externo = 0.4680
+[16:24:22]   Árbol de regresión RMSE externo = 1.7494
+[16:30:31]   Random Forest        RMSE externo = 1.6202
+[16:31:26]   XGBoost              RMSE externo = 1.4872
+[16:31:26] Velocidad externa excluida: 12 nudos
+[16:31:26]   [OK] partición externa 12 nudos: 7 velocidades de ajuste y ninguna fila de la evaluada
+[16:31:29]   Elastic-net          RMSE externo = 1.2252
+[16:31:31]   Ridge                RMSE externo = 1.2663
+[16:31:32]   Lasso                RMSE externo = 1.1716
+[16:31:38]   Splines naturales    RMSE externo = 0.7518
+[16:31:50]   Árbol de regresión RMSE externo = 2.0009
+[16:37:49]   Random Forest        RMSE externo = 1.6937
+[16:38:48]   XGBoost              RMSE externo = 1.5227
+[16:38:48] Velocidad externa excluida: 18 nudos
+[16:38:48]   [OK] partición externa 18 nudos: 7 velocidades de ajuste y ninguna fila de la evaluada
+[16:38:52]   Elastic-net          RMSE externo = 1.4215
+[16:38:53]   Ridge                RMSE externo = 1.3994
+[16:38:55]   Lasso                RMSE externo = 1.4390
+[16:39:00]   Splines naturales    RMSE externo = 0.9450
+[16:39:15]   Árbol de regresión RMSE externo = 2.2843
+[16:45:18]   Random Forest        RMSE externo = 1.8559
+[16:46:16]   XGBoost              RMSE externo = 1.4808
+[16:46:16] Velocidad externa excluida: 21 nudos
+[16:46:16]   [OK] partición externa 21 nudos: 7 velocidades de ajuste y ninguna fila de la evaluada
+[16:46:20]   Elastic-net          RMSE externo = 1.4469
+[16:46:21]   Ridge                RMSE externo = 1.2123
+[16:46:23]   Lasso                RMSE externo = 1.4771
+[16:46:28]   Splines naturales    RMSE externo = 1.8155
+[16:46:41]   Árbol de regresión RMSE externo = 2.2616
+[16:52:42]   Random Forest        RMSE externo = 1.4874
+[16:53:41]   XGBoost              RMSE externo = 1.5268
+[16:53:41] Velocidad externa excluida: 24 nudos
+[16:53:41]   [OK] partición externa 24 nudos: 7 velocidades de ajuste y ninguna fila de la evaluada
+[16:53:45]   Elastic-net          RMSE externo = 0.8258
+[16:53:46]   Ridge                RMSE externo = 0.9215
+[16:53:48]   Lasso                RMSE externo = 0.9984
+[16:53:53]   Splines naturales    RMSE externo = 1.3964
+[16:54:06]   Árbol de regresión RMSE externo = 2.4916
+[17:00:03]   Random Forest        RMSE externo = 1.5382
+[17:00:59]   XGBoost              RMSE externo = 1.6321
+[17:00:59] Velocidad externa excluida: 27 nudos
+[17:00:59]   [OK] partición externa 27 nudos: 7 velocidades de ajuste y ninguna fila de la evaluada
+[17:01:03]   Elastic-net          RMSE externo = 0.9982
+[17:01:04]   Ridge                RMSE externo = 0.9287
+[17:01:06]   Lasso                RMSE externo = 1.3068
+[17:01:11]   Splines naturales    RMSE externo = 11.5213
+[17:01:24]   Árbol de regresión RMSE externo = 2.5865
+[17:07:16]   Random Forest        RMSE externo = 2.2620
+[17:08:11]   XGBoost              RMSE externo = 2.4980
+[17:08:11]   [OK] cada modelo tiene exactamente 8 evaluaciones externas
+[17:08:11] Ranking anidado: Elastic-net = 1.2428 | Ridge = 1.2527 | Lasso = 1.3341 | Baseline global = 1.4762 | XGBoost = 1.7778 | Random Forest = 1.7809 | Árbol de regresión = 2.0530 | Splines naturales = 2.7365
+[17:08:11]   [OK] la referencia y la ejecución actual comparan los mismos modelos
+[17:08:11]   [OK] el ranking anidado reproduce la ejecución de referencia (dif. máx. = 4e-15)
+[17:08:11] Paso 11 terminado. No se evaluaron los test.
+[17:09:49] === Paso 23: validación aleatoria frente a LOSO (solo entrenamiento) ===
+[17:09:49] Leyendo datos/data.txt
+[17:09:49]   [OK] dataset con 18 columnas y 11934 filas (>= 1000)
+[17:09:49]   [OK] sin valores faltantes
+[17:09:49]   [OK] sin filas duplicadas
+[17:09:49]   [OK] los datos coinciden con la versión usada en el informe (11934 filas; firma 474761108.888)
+[17:09:49]   [OK] respuesta y dentro de [0, 5] puntos %
+[17:09:49]   [OK] existe la velocidad reservada (15 nudos)
+[17:09:49]   [OK] sin filas compartidas: entrenamiento / test aleatorio
+[17:09:49]   [OK] sin filas compartidas: entrenamiento / test de velocidad
+[17:09:49]   [OK] sin filas compartidas entre los dos test
+[17:09:49]   [OK] la velocidad reservada no aparece en el entrenamiento
+[17:09:49]   [OK] las tres particiones suman todas las filas
+[17:09:49]     tabla: resultados_validacion_anidada/tablas/02_particion.csv
+[17:09:49] Entrenamiento: 8486 | test aleatorio: 2122 | test velocidad 15: 1326
+[17:09:52]   Elastic-net        RMSE CV aleatoria = 0.699 | RMSE LOSO = 2.396
+[17:09:54]   Ridge              RMSE CV aleatoria = 1.112 | RMSE LOSO = 1.183
+[17:09:56]   Lasso              RMSE CV aleatoria = 0.699 | RMSE LOSO = 2.485
+[17:10:01]   Splines naturales  RMSE CV aleatoria = 0.011 | RMSE LOSO = 18.520
+[17:10:01]     tabla: resultados_validacion_anidada/tablas/23_cv_aleatoria_vs_loso.csv
+[17:10:01] Mejor por CV aleatoria: Splines naturales | mejor por LOSO: Ridge
+[17:10:01] Paso 23 terminado. Los test no se utilizaron.
